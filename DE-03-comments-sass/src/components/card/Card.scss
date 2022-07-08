@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    .card{
+        width: 30%;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+        padding: 15px;
+
+        img{
+            width: 50%;
+            border-radius: 80px;
+        }
+
+    }
+
+}
