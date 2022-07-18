@@ -12,8 +12,7 @@ const TeacherDetails = () => {
   console.log(id);
   const [kisi, setKisi] = useState({});
 
-  //! apide id ile tek eleman getirme özelliği de var, dolayısıyla dizinin içinde dolaşmaya gerek yok,
-  // id ile (fetch) tek eleman getirdik ve bastırdık
+  //! apide id ile tek eleman getirme özelliği de var, dolayısıyla dizinin içinde dolaşmaya gerek yok, id ile (fetch) tek eleman getirdik ve bastırdık
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => res.json())
