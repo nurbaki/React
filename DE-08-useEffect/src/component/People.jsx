@@ -12,7 +12,7 @@ const People = () => {
   console.log(insanlar);
 
   return (
-    <div className="container tet-center">
+    <div className="container text-center">
       <div className="row">
         {insanlar.map((insan) => {
           const { id, name, phone } = insan;
