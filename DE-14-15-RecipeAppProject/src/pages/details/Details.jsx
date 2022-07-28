@@ -24,7 +24,7 @@ const Details = () => {
       </HeaderContainer>
       <DetailPart>
         <OtherPart>
-          <>Nutrients</>
+          <h2>Nutrients</h2>
           <p>
             {recipe.totalNutrients.CA.label} :
             {Math.round(recipe.totalNutrients.CA.quantity)}
