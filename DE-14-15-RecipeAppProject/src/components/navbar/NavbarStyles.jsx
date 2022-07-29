@@ -9,11 +9,10 @@ export const Nav = styled.div`
   align-items: center; // dikeyde ortala
   flex-wrap: wrap;
   /* Varsayılan olarak esnek öğeler tek bir satıra sığmaya çalışırlar. Gerektiğinde birden fazla satıra yaymak için bu özelliği kullanabilirsiniz */
-  background: salmon;
+  background: #ff2e00;
   border-radius: 0 0 10px 10px;
   height: 75px;
   font-size: 2rem;
-  /* background: #e1f1dd; */
 `;
 
 export const MenuLink = styled(Link)`
@@ -23,7 +22,6 @@ export const MenuLink = styled(Link)`
   text-align: center;
   text-decoration: none;
   /* kelimelerin altı çizili olmasın */
-  color: #02475e;
 
   transition: all 0.3s ease-in;
   font-size: 2rem;
@@ -42,7 +40,7 @@ export const MenuLink = styled(Link)`
 `;
 export const Menu = styled.div`
   /* navbardaki 3 kelime about ...hepsini içine alan sarmalın (kutunun ) özellikleri*/
-  background: #e1f1dd;
+  background: #fea82f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,7 +86,8 @@ export const Menu = styled.div`
 `;
 export const Logo = styled(Link)`
   padding: 1rem 0;
-  color: #393e46;
+  /* color: #5448c8; */
+  color: #fffecb;
   text-decoration: none;
   font-weight: 800;
   font-size: 2rem;
@@ -99,7 +98,7 @@ export const Logo = styled(Link)`
     font-family: "Girassol", sans-serif;
     font-weight: 400;
     font-size: 2rem;
-    color: #00adb5;
+    color: #423e3b;
   }
 `;
 

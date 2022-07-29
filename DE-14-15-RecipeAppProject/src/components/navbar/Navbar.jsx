@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Logo to="/home">
-        <i>{"<Clarusway>"}</i>
+        <i>{"<Nurbaki>"}</i>
         <span>recipe</span>{" "}
       </Logo>
       <Hamburger onClick={() => setAcik(!acik)}>
@@ -19,7 +19,7 @@ const Navbar = () => {
         <a href="https://github.com" target="blank">
           Github
         </a>
-        <MenuLink to="/">Logout</MenuLink>
+        <MenuLink to="/">Login</MenuLink>
       </Menu>
     </Nav>
   );

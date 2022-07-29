@@ -6,6 +6,7 @@ import {
   FoodInput,
   Button,
   Select,
+  SubHeader,
 } from "./HeaderStyles";
 
 const Header = ({ setMeal, setQuery, getData }) => {
@@ -15,7 +16,10 @@ const Header = ({ setMeal, setQuery, getData }) => {
   };
   return (
     <HeaderContainer>
-      <MainHeader>FOOD APP</MainHeader>
+      <MainHeader>Recipe App</MainHeader>
+      <SubHeader>
+        You can find 10 special recipe from World Kitchens. Let's search.
+      </SubHeader>
       <FormContainer onSubmit={submit}>
         <FoodInput
           type="text"

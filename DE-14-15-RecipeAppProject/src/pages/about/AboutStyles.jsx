@@ -12,7 +12,7 @@ export const AboutContainer = styled.div`
   /*  Ekran yüksekliğiniz mesela 1000 piksel ise, öğenizin yüksekliği 900 piksele  eşit olacaktır.(1000 pikselin %100'ü ve eksi 100 piksel) */
   line-height: 2;
   span {
-    color: orange;
+    color: #fea82f;
     font-family: "Girassol", sans-serif;
     font-size: 3rem;
   }
@@ -23,7 +23,10 @@ export const StyledImage = styled.img`
 `;
 
 export const HeaderContainer = styled.div`
-  background-color: whitesmoke;
+  text-align: center;
+  background-color: #5448c8;
+  padding: 1rem;
+  margin: 0.5rem;
 `;
 
 export const InfoContainer = styled.div`
@@ -34,6 +37,6 @@ export const InfoContainer = styled.div`
   padding: 25px;
   border-radius: 5px;
   a {
-    color: orange;
+    color: #fea82f;
   }
 `;

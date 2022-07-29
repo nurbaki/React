@@ -11,9 +11,14 @@ export const HeaderContainer = styled.div`
 `;
 
 export const MainHeader = styled.h2`
-  /* food app başlık */
+  /* recipe app başlık */
+
   margin-top: 1rem;
   font-size: 3rem;
+`;
+
+export const SubHeader = styled.h2`
+  /* basligin altindaki kisa aciklama */
 `;
 
 export const FormContainer = styled.form`
