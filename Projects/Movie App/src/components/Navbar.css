@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
+.navbars {
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.navbars a {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: xx-large;
+}
