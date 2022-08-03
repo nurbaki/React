@@ -5,12 +5,14 @@ import "./Cards.css";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Cards() {
+function SearchCard() {
+  const movieName = "matrix";
+
   const IMG_API = "https://image.tmdb.org/t/p/w1280";
   const API_KEY = "844f59466ff48f03fe6b85c19b02206c";
   const [bilgiler, setBilgiler] = useState([]);
 
-  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${movieName}`;
 
   const getBilgiler = async () => {
     const { data } = await axios.get(url);
@@ -20,8 +22,6 @@ function Cards() {
   useEffect(() => {
     getBilgiler();
   }, []);
-
-  console.log(bilgiler);
 
   return (
     <div className="container">
@@ -45,4 +45,4 @@ function Cards() {
     </div>
   );
 }
-export default Cards;
+export default SearchCard;

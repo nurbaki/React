@@ -1,15 +1,29 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import Cards from "../components/Cards";
+import axios from "axios";
+import SearchCard from "../components/SearchCard";
 
 const Main = () => {
+  const navigate = useNavigate();
+  const [movieName, setMovieName] = useState("");
+
+  const searchMovie = (e) => {
+    e.preventDefault();
+    // burda navigate ile search card sayfasina gidilecek
+  };
   return (
     <div>
-      <form className="row g-3 mt-2 d-flex justify-content-center">
+      <form
+        onSubmit={searchMovie}
+        className="row g-3 mt-2 d-flex justify-content-center"
+      >
         <div className="col-auto">
           <label htmlFor="inputText" className="visually-hidden">
             Password
           </label>
           <input
+            onChange={(e) => setMovieName(e.target.value)}
             type="text"
             className="form-control"
             id="inputText"

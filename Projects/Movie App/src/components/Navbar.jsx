@@ -7,7 +7,7 @@ function Navbar() {
     <div className="navbars">
       <div className="header">
         <NavLink
-          className="nav"
+          className="nav-link"
           style={({ isActive }) => ({ color: isActive && "red" })}
           to="/main"
         >
@@ -17,7 +17,7 @@ function Navbar() {
 
       <div className="links">
         <NavLink
-          className="nav"
+          className="nav-link"
           style={({ isActive }) => ({ color: isActive && "red" })}
           to="/"
         >

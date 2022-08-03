@@ -1,15 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Nuosu+SIL&display=swap");
-
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
-
-p {
-  font-family: "Hubballi", cursive;
 }
 
 .card {
@@ -23,8 +15,8 @@ p {
 }
 
 .title h1 {
+  background-color: blue;
   color: white;
-  font-family: "Amatic SC", cursive;
   padding: 1rem;
   font-size: 1.5 rem;
 }
@@ -36,21 +28,16 @@ img {
   filter: grayscale(0);
 }
 .textDesc {
-  color: white;
+  color: black;
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(247, 245, 245, 0.7);
   font-size: 1rem;
   padding: 1rem;
   transform: translateX(100%);
   z-index: 1;
   transition: transform 0.7s ease-in-out;
-}
-
-.card img:hover {
-  /* filter: brightness(50%) saturate(100%); */
-  filter: grayscale(100);
 }
 .card:hover .textDesc {
   transform: translateY(0);

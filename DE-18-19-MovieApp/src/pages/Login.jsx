@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signIn } from "../auth/firebase";
+import { signIn, signUpProvider } from "../auth/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -12,7 +12,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-
   const navigate = useNavigate();
   const { email, password } = info;
 
@@ -67,7 +66,10 @@ const Login = () => {
             Login
           </button>
         </form>
-        <button className="btn btn-primary form-control">
+        <button
+          onClick={() => signUpProvider(navigate)}
+          className="btn btn-primary form-control"
+        >
           Continue with Google
         </button>
       </div>

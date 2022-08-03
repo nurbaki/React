@@ -6,6 +6,9 @@
   justify-content: space-between;
   padding: 1rem;
 }
+.links {
+  display: inline-flex;
+}
 .navbars a {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding: 1rem;
