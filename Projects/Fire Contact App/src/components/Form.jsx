@@ -21,7 +21,6 @@ const Form = ({ contactArray, setContactArray }) => {
     e.preventDefault();
     addContact();
   };
-  console.log(contactArray);
 
   return (
     <div className="container">
