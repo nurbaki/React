@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { BsFillTelephoneFill, BsFillPeopleFill } from "react-icons/bs";
+import firebase from "../utils/firebase";
+import { getDatabase, set, ref, push } from "firebase/database";
 
 const Form = ({ contactArray, setContactArray }) => {
   //* ayrı stateler
@@ -8,19 +10,24 @@ const Form = ({ contactArray, setContactArray }) => {
   const [phone, setPhone] = useState();
   const [gender, setGender] = useState();
 
-  const addContact = () => {
-    const newContact = {
+  const addContact = (name, phone, gender) => {
+    const db = getDatabase(firebase);
+    const userRef = ref(db, "users/");
+    const newUserRef = push(userRef);
+    set(newUserRef, {
       name: name,
       phone: phone,
       gender: gender,
-    };
-    setContactArray([...contactArray, newContact]);
+    });
+    console.log(name, phone, gender);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addContact();
+    addContact(name, phone, gender);
   };
+
+  console.log(contactArray);
 
   return (
     <div className="container">

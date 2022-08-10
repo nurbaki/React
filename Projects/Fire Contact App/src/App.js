@@ -5,13 +5,7 @@ import Table from "./components/Table";
 import { useState } from "react";
 
 function App() {
-  const [contactArray, setContactArray] = useState([
-    {
-      name: "Nurbaki",
-      phone: 123456,
-      gender: "Male",
-    },
-  ]);
+  const [contactArray, setContactArray] = useState([]);
 
   return (
     <div className="container">

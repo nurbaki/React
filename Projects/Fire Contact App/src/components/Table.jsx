@@ -1,45 +1,36 @@
 import React from "react";
 import { BsPencilSquare, BsFillXCircleFill } from "react-icons/bs";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect } from "react";
 
 const Table = ({ contactArray, setContactArray }) => {
-  //   movies.map((movie) => <MovieCard key={movie.id} {...movie} />)
+  useEffect(() => {
+    dataRead();
+  }, []);
 
-  //   <div className="d-flex text-white align-items-center ">
-  //   {currentUser ? (
-  //     <>
-  //       <h5 className="mb-0 text-capitalize">
-  //         {currentUser?.displayName}
-  //       </h5>
-  //       <button
-  //         onClick={() => logOut()}
-  //         className="ms-2 btn btn-outline-light"
-  //       >
-  //         Logout
-  //       </button>
-  //     </>
-  //   ) : (
-  //     <>
-  //       <button
-  //         onClick={() => navigate("/login")}
-  //         className="ms-2 btn btn-outline-light"
-  //       >
-  //         Login
-  //       </button>
-  //       <button
-  //         onClick={() => navigate("/register")}
-  //         className="ms-2 btn btn-outline-light"
-  //       >
-  //         Register
-  //       </button>
-  //     </>
-  //   )}
-  // </div>
+  const dataRead = () => {
+    const db = getDatabase();
+    const starCountRef = ref(db, "users/");
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+
+      const array = [];
+      for (let id in data) {
+        array.push({ id, ...data[id] });
+      }
+
+      setContactArray(array);
+    });
+  };
+
+  console.log(contactArray);
 
   return (
     <div className="container">
       <div className="row bg-white mb-3">
         <h2>Contacts</h2>
       </div>
+
       <div className="row bg-white mb-3">
         <table className="table">
           <thead>
@@ -51,18 +42,24 @@ const Table = ({ contactArray, setContactArray }) => {
               <th scope="col"> Edit</th>
             </tr>
           </thead>
+
           <tbody>
-            <tr>
-              <td>i.name</td>
-              <td>i.phone</td>
-              <td>i.gender</td>
-              <td className="text-danger">
-                <BsFillXCircleFill />
-              </td>
-              <td>
-                <BsPencilSquare />
-              </td>
-            </tr>
+            {contactArray?.map((item) => {
+              return (
+                <tr>
+                  <td>{item.name}</td>
+                  <td>{item.phone}</td>
+                  <td>{item.gender}</td>
+                  <td className="text-danger">
+                    <BsFillXCircleFill />
+                  </td>
+                  <td>
+                    <BsPencilSquare />
+                  </td>
+                </tr>
+              );
+            })}
+            ;
           </tbody>
         </table>
       </div>
