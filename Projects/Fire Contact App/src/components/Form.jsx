@@ -1,8 +1,8 @@
 import React from "react";
-import { useState } from "react";
 import { BsFillTelephoneFill, BsFillPeopleFill } from "react-icons/bs";
 import firebase from "../utils/firebase";
 import { getDatabase, set, ref, push, update } from "firebase/database";
+import Toastify from "../utils/toastify";
 
 const Form = ({
   info,
@@ -26,7 +26,7 @@ const Form = ({
       phone: info.phone,
       gender: info.gender,
     });
-    console.log(info);
+    Toastify("Added Successfully");
   };
 
   const UpdateUser = (info) => {
@@ -49,8 +49,12 @@ const Form = ({
 
     if (info.id) {
       UpdateUser(info);
+      setInfo({ name: "", phone: "", gender: "" });
+      setIsAdd("ADD");
+      Toastify("Updated Successfully");
     } else {
       addContact(info);
+      setInfo({ name: "", phone: "", gender: "" });
       setIsAdd("ADD");
     }
   };
@@ -77,6 +81,7 @@ const Form = ({
                 class="form-control"
                 id="autoSizingInputGroup"
                 placeholder="Name"
+                name="name"
                 value={info.name}
                 required
                 // onChange={(e) => setName(e.target.value)}
@@ -98,6 +103,7 @@ const Form = ({
                 class="form-control"
                 id="autoSizingInputGroup"
                 placeholder="Phone Number"
+                name="phone"
                 value={info.phone}
                 required
                 // onChange={(e) => setPhone(e.target.value)}
@@ -110,6 +116,7 @@ const Form = ({
             <select
               class="form-select"
               aria-label="Default select example"
+              name="gender"
               value={info.gender}
               required
               // onChange={(e) => setGender(e.target.value)}

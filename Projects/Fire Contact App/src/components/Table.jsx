@@ -3,6 +3,7 @@ import firebase from "../utils/firebase";
 import { BsPencilSquare, BsFillXCircleFill } from "react-icons/bs";
 import { getDatabase, ref, remove, onValue } from "firebase/database";
 import { useEffect } from "react";
+import Toastify from "../utils/toastify";
 
 const Table = ({ EditUser, contactArray, setContactArray }) => {
   useEffect(() => {
@@ -29,7 +30,7 @@ const Table = ({ EditUser, contactArray, setContactArray }) => {
   const DeleteUser = (id) => {
     const db = getDatabase(firebase);
     remove(ref(db, "users/" + id));
-    // Toastify("Deleted Successfully")
+    Toastify("Deleted Successfully");
   };
 
   return (

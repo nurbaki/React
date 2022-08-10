@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Form from "./components/Form";
 import Table from "./components/Table";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 
 const initialValues = { name: "", phone: "", gender: "" };
 
@@ -39,6 +40,7 @@ function App() {
           />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
