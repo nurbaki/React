@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Cards from "../components/Cards";
 import axios from "axios";
 import SearchCard from "../components/SearchCard";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   const navigate = useNavigate();
