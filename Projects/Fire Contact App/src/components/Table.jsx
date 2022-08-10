@@ -1,9 +1,10 @@
 import React from "react";
+import firebase from "../utils/firebase";
 import { BsPencilSquare, BsFillXCircleFill } from "react-icons/bs";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, remove, onValue } from "firebase/database";
 import { useEffect } from "react";
 
-const Table = ({ contactArray, setContactArray }) => {
+const Table = ({ EditUser, contactArray, setContactArray }) => {
   useEffect(() => {
     dataRead();
   }, []);
@@ -24,6 +25,12 @@ const Table = ({ contactArray, setContactArray }) => {
   };
 
   console.log(contactArray);
+
+  const DeleteUser = (id) => {
+    const db = getDatabase(firebase);
+    remove(ref(db, "users/" + id));
+    // Toastify("Deleted Successfully")
+  };
 
   return (
     <div className="container">
@@ -50,16 +57,22 @@ const Table = ({ contactArray, setContactArray }) => {
                   <td>{item.name}</td>
                   <td>{item.phone}</td>
                   <td>{item.gender}</td>
-                  <td className="text-danger">
+                  <td
+                    className="text-danger"
+                    onClick={() => DeleteUser(item.id)}
+                  >
                     <BsFillXCircleFill />
                   </td>
-                  <td>
+                  <td
+                    onClick={() =>
+                      EditUser(item.id, item.name, item.phone, item.gender)
+                    }
+                  >
                     <BsPencilSquare />
                   </td>
                 </tr>
               );
             })}
-            ;
           </tbody>
         </table>
       </div>

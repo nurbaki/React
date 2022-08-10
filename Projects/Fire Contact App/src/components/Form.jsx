@@ -2,29 +2,57 @@ import React from "react";
 import { useState } from "react";
 import { BsFillTelephoneFill, BsFillPeopleFill } from "react-icons/bs";
 import firebase from "../utils/firebase";
-import { getDatabase, set, ref, push } from "firebase/database";
+import { getDatabase, set, ref, push, update } from "firebase/database";
 
-const Form = ({ contactArray, setContactArray }) => {
+const Form = ({
+  info,
+  setInfo,
+  isAdd,
+  setIsAdd,
+  contactArray,
+  setContactArray,
+}) => {
   //* ayrı stateler
-  const [name, setName] = useState();
-  const [phone, setPhone] = useState();
-  const [gender, setGender] = useState();
+  // const [name, setName] = useState();
+  // const [phone, setPhone] = useState();
+  // const [gender, setGender] = useState();
 
-  const addContact = (name, phone, gender) => {
+  const addContact = (info) => {
     const db = getDatabase(firebase);
     const userRef = ref(db, "users/");
     const newUserRef = push(userRef);
     set(newUserRef, {
-      name: name,
-      phone: phone,
-      gender: gender,
+      name: info.name,
+      phone: info.phone,
+      gender: info.gender,
     });
-    console.log(name, phone, gender);
+    console.log(info);
+  };
+
+  const UpdateUser = (info) => {
+    const db = getDatabase(firebase);
+    const updates = {};
+    updates["users/" + info.id] = info;
+    return update(ref(db), updates);
+  };
+
+  const handleChange = (e) => {
+    // const name=e.target.name;
+    // const value=e.target.value;
+    const { name, value } = e.target;
+    setInfo({ ...info, [name]: value });
+    console.log("info bilgisi:", info);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addContact(name, phone, gender);
+
+    if (info.id) {
+      UpdateUser(info);
+    } else {
+      addContact(info);
+      setIsAdd("ADD");
+    }
   };
 
   console.log(contactArray);
@@ -49,8 +77,10 @@ const Form = ({ contactArray, setContactArray }) => {
                 class="form-control"
                 id="autoSizingInputGroup"
                 placeholder="Name"
+                value={info.name}
                 required
-                onChange={(e) => setName(e.target.value)}
+                // onChange={(e) => setName(e.target.value)}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -68,8 +98,10 @@ const Form = ({ contactArray, setContactArray }) => {
                 class="form-control"
                 id="autoSizingInputGroup"
                 placeholder="Phone Number"
+                value={info.phone}
                 required
-                onChange={(e) => setPhone(e.target.value)}
+                // onChange={(e) => setPhone(e.target.value)}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -78,8 +110,10 @@ const Form = ({ contactArray, setContactArray }) => {
             <select
               class="form-select"
               aria-label="Default select example"
+              value={info.gender}
               required
-              onChange={(e) => setGender(e.target.value)}
+              // onChange={(e) => setGender(e.target.value)}
+              onChange={handleChange}
             >
               <option selected>Gender</option>
               <option value="Male">Male</option>
@@ -93,7 +127,7 @@ const Form = ({ contactArray, setContactArray }) => {
             className="btn btn-primary"
             onClick={handleSubmit}
           >
-            Submit
+            {isAdd}
           </button>
         </form>
       </div>
