@@ -10,6 +10,8 @@ const initialValues = { name: "", phone: "", gender: "" };
 function App() {
   const [info, setInfo] = useState(initialValues);
   const [isAdd, setIsAdd] = useState("ADD");
+
+  
   const [contactArray, setContactArray] = useState([]);
 
   const EditUser = (id, name, phone, gender) => {
