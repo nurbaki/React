@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { createUser } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Register = () => {
-  //* ayrı stateler
-  // const [firstName, setFirstName] = useState();
-  // const [lastName, setLastName] = useState();
-  // const [email, setEmail] = useState();
-  // const [password, setPassword] = useState();
+  const { info, setInfo } = useContext(AuthContext);
 
-  //* birleştirilmiş state
-  const [info, setInfo] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  });
   const navigate = useNavigate();
+
   const { firstName, lastName, email, password } = info;
 
   const handleSubmit = (e) => {

@@ -16,6 +16,7 @@ import Register from "../pages/Register";
 import About from "../pages/About";
 import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
+import UpdateBlog from "../pages/UpdateBlog";
 
 const AppRouter = () => {
   const { currentUser } = useContext(AuthContext);
@@ -32,6 +33,7 @@ const AppRouter = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/newblog" element={<NewBlog />} />
+        <Route path="/updateblog" element={<UpdateBlog />} />
         <Route path="/details/:id" element={<PrivateRouter />}>
           <Route path="/details/:id" element={<BlogDetail />} />
         </Route>

@@ -4,7 +4,7 @@ import BlogForm from "../components/BlogForm";
 const NewBlog = () => {
   return (
     <div>
-      <h1>newblog</h1>
+      <h1 className="text-center">New Blog</h1>
       <BlogForm />
     </div>
   );

@@ -9,9 +9,13 @@ import {
   toastSuccessNotify,
   toastWarnNotify,
 } from "../helpers/ToastNotify";
+import { useNavigate } from "react-router-dom";
 
 const BlogForm = () => {
-  const { blog, isSubmit, setBlog, setIsSubmit } = useContext(AuthContext);
+  const { info, blog, isSubmit, setBlog, setIsSubmit } =
+    useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const addBlog = (blog) => {
     const db = getDatabase();
@@ -21,6 +25,9 @@ const BlogForm = () => {
       title: blog.title,
       url: blog.url,
       content: blog.content,
+      firstName: info.firstName,
+      lastName: info.lastName,
+      email: info.email,
     });
     toastSuccessNotify("Added Successfully");
   };
@@ -46,6 +53,7 @@ const BlogForm = () => {
       setBlog({ title: "", url: "", content: "" });
       setIsSubmit("SUBMIT");
       toastSuccessNotify("Updated Successfully");
+      navigate("/details/" + blog.id);
     } else {
       addBlog(blog);
       setBlog({ title: "", url: "", content: "" });
@@ -55,49 +63,58 @@ const BlogForm = () => {
 
   return (
     <div className="container">
-      <div className="row bg-white mb-3">
-        <h2>Add Contact</h2>
-      </div>
+      <div className="row bg-white">{/* <h2>Add New Blog</h2> */}</div>
       <div className="row bg-white">
-        <form className="p-3">
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="floatingInput"
-              placeholder="Title"
-              name="title"
-              value={blog.title}
-              required
-              onChange={handleChange}
-            />
-            <label htmlFor="floatingInput">Title</label>
+        <form>
+          <div>
+            <div className="form-floating">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Title"
+                name="title"
+                value={blog.title}
+                required
+                onChange={handleChange}
+              />
+              <label htmlFor="floatingInput" className="ps-4">
+                Title
+              </label>
+            </div>
           </div>
-          <div className="form-floating">
-            <input
-              type="text"
-              className="form-control"
-              id="floatingPassword"
-              placeholder="Image url"
-              name="url"
-              value={blog.url}
-              required
-              onChange={handleChange}
-            />
-            <label htmlFor="floatingPassword">Image URL</label>
+          <div>
+            <div className="form-floating">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingPassword"
+                placeholder="Image url"
+                name="url"
+                value={blog.url}
+                required
+                onChange={handleChange}
+              />
+              <label htmlFor="floatingPassword" className="ps-4">
+                Image URL
+              </label>
+            </div>
           </div>
+
           <div className="form-floating">
             <textarea
               className="form-control"
               placeholder="Content"
               name="content"
               id="floatingTextarea2"
-              style={{ height: "100px" }}
+              style={{ height: "200px" }}
               value={blog.content}
               required
               onChange={handleChange}
             />
-            <label htmlFor="floatingTextarea2">Content</label>
+            <label htmlFor="floatingTextarea2" className="ps-4">
+              Content
+            </label>
           </div>
           <button
             type="submit"

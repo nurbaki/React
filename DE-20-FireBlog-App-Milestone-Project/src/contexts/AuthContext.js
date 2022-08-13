@@ -7,6 +7,13 @@ const initialValues = { title: "", url: "", content: "" };
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
+  const [info, setInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const [blogsArray, setBlogsArray] = useState([]);
   const [blog, setBlog] = useState(initialValues);
   const [isSubmit, setIsSubmit] = useState("SUBMIT");
 
@@ -17,7 +24,17 @@ const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ currentUser, isSubmit, setIsSubmit, blog, setBlog }}
+      value={{
+        currentUser,
+        isSubmit,
+        setIsSubmit,
+        blog,
+        setBlog,
+        info,
+        setInfo,
+        blogsArray,
+        setBlogsArray,
+      }}
     >
       {children}
     </AuthContext.Provider>
