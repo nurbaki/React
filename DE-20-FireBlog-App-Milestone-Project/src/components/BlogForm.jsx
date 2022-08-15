@@ -12,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const BlogForm = () => {
-  const { info, blog, isSubmit, setBlog, setIsSubmit } =
+  const { currentUser, blog, isSubmit, setBlog, setIsSubmit } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -25,9 +25,8 @@ const BlogForm = () => {
       title: blog.title,
       url: blog.url,
       content: blog.content,
-      firstName: info.firstName,
-      lastName: info.lastName,
-      email: info.email,
+      displayName: currentUser.displayName,
+      email: currentUser.email,
     });
     toastSuccessNotify("Added Successfully");
   };

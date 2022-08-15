@@ -3,10 +3,6 @@ import { forgotPassword, signIn, signUpProvider } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  //* ayrı stateler
-  // const [email, setEmail] = useState();
-  // const [password, setPassword] = useState();
-
   //* birleştirilmiş state
   const [info, setInfo] = useState({
     email: "",
@@ -36,7 +32,6 @@ const Login = () => {
               Email
             </label>
             <input
-              // onChange={(e) => setEmail(e.target.value)}
               onChange={handleChange}
               type="email"
               name="email"
@@ -50,7 +45,6 @@ const Login = () => {
               Password
             </label>
             <input
-              // onChange={(e) => setPassword(e.target.value)}
               onChange={handleChange}
               type="password"
               name="password"

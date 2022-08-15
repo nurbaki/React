@@ -8,7 +8,8 @@ const BlogDetail = () => {
   const [blogDetails, setBlogDetails] = useState("");
   const navigate = useNavigate();
 
-  const { blogsArray, setBlog, setIsSubmit } = useContext(AuthContext);
+  const { currentUser, blogsArray, setBlog, setIsSubmit } =
+    useContext(AuthContext);
   const { id } = useParams();
 
   const findBlog = () => {
@@ -26,11 +27,12 @@ const BlogDetail = () => {
     findBlog();
   }, []);
 
-  const { title, url, content, firstName, lastName, email } = blogDetails;
+  const { title, url, content, displayName, email } = blogDetails;
 
   const DeleteUser = (id) => {
     const db = getDatabase();
     remove(ref(db, "users/" + id));
+    setBlog({ title: "", url: "", content: "" });
     toastWarnNotify("Deleted Successfully");
     navigate("/");
   };
@@ -60,10 +62,12 @@ const BlogDetail = () => {
             </div>
             <ul className="list-group ">
               <li className="list-group-item">
-                {"Release Date : " + firstName}
+                {"Release Date : " + "buraya date fonksiyonu ile tarih gelecek"}
               </li>
-              <li className="list-group-item">{"Rate : " + email}</li>
-              <li className="list-group-item">{"Total Vote : " + lastName}</li>
+              <li className="list-group-item">
+                {"Likes : " + { displayName }}
+              </li>
+              <li className="list-group-item">{"Comments : " + { email }}</li>
               <li className="list-group-item">
                 <Link to={"/"} className="card-link">
                   Go Back
@@ -73,25 +77,36 @@ const BlogDetail = () => {
           </div>
         </div>
       </div>
-
-      <button
-        type="submit"
-        className="btn btn-danger"
-        onClick={() => DeleteUser(id)}
-      >
-        DELETE
-      </button>
-      <button
-        type="submit"
-        className="btn btn-warning"
-        onClick={() => {
-          // !currentUser && toastWarnNotify("please log in to see details");
-
-          EditBlog(id, title, url, content);
-        }}
-      >
-        UPDATE
-      </button>
+      <div className="d-flex text-white align-items-center ">
+        {/* //!! currentUser.email == email &&
+        
+         */}
+        {currentUser.email === email ? (
+          <>
+            {" "}
+            <button
+              type="submit"
+              className="btn btn-danger"
+              onClick={() => DeleteUser(id)}
+            >
+              DELETE
+            </button>
+            <button
+              type="submit"
+              className="btn btn-warning"
+              onClick={() => {
+                EditBlog(id, title, url, content);
+              }}
+            >
+              UPDATE
+            </button>
+          </>
+        ) : (
+          <>
+            <h1>Burayi yalnizca yazar degistirebilir</h1>
+          </>
+        )}
+      </div>
     </div>
   );
 };

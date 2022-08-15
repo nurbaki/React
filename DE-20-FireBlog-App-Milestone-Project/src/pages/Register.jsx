@@ -19,6 +19,7 @@ const Register = () => {
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
+  console.log(info);
   return (
     <div className="d-flex justify-content-center">
       <div className="form-image d-none d-md-block">
