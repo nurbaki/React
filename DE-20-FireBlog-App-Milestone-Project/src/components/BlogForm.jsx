@@ -2,13 +2,8 @@ import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 // import { BsFillTelephoneFill, BsFillPeopleFill } from "react-icons/bs";
-import firebase from "../helpers/firebase";
 import { getDatabase, set, ref, push, update } from "firebase/database";
-import {
-  toastErrorNotify,
-  toastSuccessNotify,
-  toastWarnNotify,
-} from "../helpers/ToastNotify";
+import { toastSuccessNotify } from "../helpers/ToastNotify";
 import { useNavigate } from "react-router-dom";
 
 const BlogForm = () => {
@@ -16,6 +11,11 @@ const BlogForm = () => {
     useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const current = new Date();
+  const date = `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}`;
 
   const addBlog = (blog) => {
     const db = getDatabase();
@@ -27,6 +27,9 @@ const BlogForm = () => {
       content: blog.content,
       displayName: currentUser.displayName,
       email: currentUser.email,
+      releaseDate: blog.lastUpdate,
+      likes: 0,
+      lastUpdate: blog.lastUpdate,
     });
     toastSuccessNotify("Added Successfully");
   };
@@ -46,16 +49,17 @@ const BlogForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setBlog({ ...blog, lastUpdate: date });
 
     if (blog.id) {
       UpdateBlog(blog);
-      setBlog({ title: "", url: "", content: "" });
+      setBlog({ ...blog, title: "", url: "", content: "" });
       setIsSubmit("SUBMIT");
       toastSuccessNotify("Updated Successfully");
       navigate("/details/" + blog.id);
     } else {
       addBlog(blog);
-      setBlog({ title: "", url: "", content: "" });
+      setBlog({ ...blog, title: "", url: "", content: "" });
       setIsSubmit("SUBMIT");
     }
   };

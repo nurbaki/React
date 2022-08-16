@@ -29,11 +29,13 @@ const Main = () => {
     });
   };
 
-  console.log(blogsArray);
-
   return (
     <>
-      <div className="d-flex justify-content-center flex-wrap">
+      <div className="text-center">
+        <h1 className="text-danger">DASHBOARD</h1>
+        <hr />
+      </div>
+      <div className="row d-flex justify-content-center flex-wrap">
         {blogsArray.map((blog) => (
           <BlogCard key={blog.id} {...blog} />
         ))}

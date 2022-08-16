@@ -15,7 +15,7 @@ const BlogDetail = () => {
   const findBlog = () => {
     for (let index = 0; index < blogsArray.length; index++) {
       const element = blogsArray[index];
-      if (element.id == id) {
+      if (element.id === id) {
         setBlogDetails(element);
         console.log(element);
         break;
@@ -27,7 +27,18 @@ const BlogDetail = () => {
     findBlog();
   }, []);
 
-  const { title, url, content, displayName, email } = blogDetails;
+  const {
+    title,
+    url,
+    content,
+    displayName,
+    email,
+    releaseDate,
+    lastUpdate,
+    likes,
+  } = blogDetails;
+
+  console.log(blogDetails);
 
   const DeleteUser = (id) => {
     const db = getDatabase();
@@ -45,7 +56,7 @@ const BlogDetail = () => {
 
   return (
     <div className="container py-5">
-      <h1 className="text-center">{title}</h1>
+      <h1 className="text-center">---DETAILS---</h1>
       <div className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">
@@ -57,17 +68,20 @@ const BlogDetail = () => {
           </div>
           <div className="col-md-8 d-flex flex-column ">
             <div className="card-body">
-              <h5 className="card-title">Content</h5>
+              <h5 className="card-title">{title}</h5>
               <p className="card-text">{content}</p>
             </div>
             <ul className="list-group ">
               <li className="list-group-item">
-                {"Release Date : " + "buraya date fonksiyonu ile tarih gelecek"}
+                {"Release Date : " + releaseDate}
               </li>
               <li className="list-group-item">
-                {"Likes : " + { displayName }}
+                {"Blogger : " + displayName + "-" + email}
               </li>
-              <li className="list-group-item">{"Comments : " + { email }}</li>
+              <li className="list-group-item">{"Likes : " + likes}</li>
+              <li className="list-group-item">
+                {"Last update : " + lastUpdate}
+              </li>
               <li className="list-group-item">
                 <Link to={"/"} className="card-link">
                   Go Back

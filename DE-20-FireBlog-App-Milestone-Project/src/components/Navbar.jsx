@@ -21,6 +21,12 @@ const Navbar = () => {
                   {currentUser?.displayName}
                 </h5>
                 <button
+                  onClick={() => navigate("/about")}
+                  className="ms-2 btn btn-outline-light"
+                >
+                  About
+                </button>
+                <button
                   onClick={() => navigate("/profile")}
                   className="ms-2 btn btn-outline-light"
                 >

@@ -3,7 +3,14 @@ import { userObserver } from "../helpers/firebase";
 
 export const AuthContext = createContext();
 
-const initialValues = { title: "", url: "", content: "" };
+const initialValues = {
+  title: "",
+  url: "",
+  content: "",
+  releaseDate: "",
+  likes: 0,
+  lastUpdate: "",
+};
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
