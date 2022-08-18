@@ -5,7 +5,12 @@ import MyPhoto from "../assets/linkedin.jpg";
 const About = () => {
   return (
     <div className="container py-5">
-      <h1 className="text-center">ABOUT</h1>
+      <h1
+        className="text-danger text-center mb-5"
+        style={{ fontFamily: "Girassol" }}
+      >
+        ─── About ───
+      </h1>
       <div className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">

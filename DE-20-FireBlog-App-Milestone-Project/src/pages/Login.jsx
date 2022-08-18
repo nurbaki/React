@@ -3,7 +3,6 @@ import { forgotPassword, signIn, signUpProvider } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  //* birleştirilmiş state
   const [info, setInfo] = useState({
     email: "",
     password: "",

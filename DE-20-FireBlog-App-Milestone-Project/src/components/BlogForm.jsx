@@ -17,6 +17,8 @@ const BlogForm = () => {
     current.getMonth() + 1
   }/${current.getFullYear()}`;
 
+  console.log(date);
+
   const addBlog = (blog) => {
     const db = getDatabase();
     const userRef = ref(db, "users/");
@@ -27,9 +29,9 @@ const BlogForm = () => {
       content: blog.content,
       displayName: currentUser.displayName,
       email: currentUser.email,
-      releaseDate: blog.lastUpdate,
+      releaseDate: date,
       likes: 0,
-      lastUpdate: blog.lastUpdate,
+      lastUpdate: date,
     });
     toastSuccessNotify("Added Successfully");
   };
@@ -43,8 +45,7 @@ const BlogForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setBlog({ ...blog, [name]: value });
-    console.log("blog bilgisi:", blog);
+    setBlog({ ...blog, lastUpdate: date, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -61,7 +62,13 @@ const BlogForm = () => {
       addBlog(blog);
       setBlog({ ...blog, title: "", url: "", content: "" });
       setIsSubmit("SUBMIT");
+      navigate("/");
     }
+  };
+
+  const cleanForm = () => {
+    setBlog({ ...blog, title: "", url: "", content: "" });
+    navigate("/");
   };
 
   return (
@@ -121,10 +128,13 @@ const BlogForm = () => {
           </div>
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary m-2"
             onClick={handleSubmit}
           >
             {isSubmit}
+          </button>
+          <button onClick={cleanForm} className="btn btn-success">
+            CANCEL
           </button>
         </form>
       </div>

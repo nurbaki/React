@@ -38,8 +38,6 @@ const BlogDetail = () => {
     likes,
   } = blogDetails;
 
-  console.log(blogDetails);
-
   const DeleteUser = (id) => {
     const db = getDatabase();
     remove(ref(db, "users/" + id));
@@ -48,15 +46,21 @@ const BlogDetail = () => {
     navigate("/");
   };
 
-  const EditBlog = (id, title, url, content) => {
-    setBlog({ id, title, url, content });
+  const EditBlog = () => {
+    setBlog(blogDetails);
     setIsSubmit("UPDATE");
     navigate("/updateblog");
   };
 
   return (
     <div className="container py-5">
-      <h1 className="text-center">---DETAILS---</h1>
+      <h1
+        className="text-danger text-center mb-5"
+        style={{ fontFamily: "Girassol" }}
+      >
+        ─── Details ───
+      </h1>
+
       <div className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">
@@ -91,7 +95,7 @@ const BlogDetail = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex text-white align-items-center ">
+      <div className="d-flex text-white align-items-center">
         {/* //!! currentUser.email == email &&
         
          */}
@@ -100,7 +104,7 @@ const BlogDetail = () => {
             {" "}
             <button
               type="submit"
-              className="btn btn-danger"
+              className="btn btn-danger m-2"
               onClick={() => DeleteUser(id)}
             >
               DELETE
@@ -109,7 +113,7 @@ const BlogDetail = () => {
               type="submit"
               className="btn btn-warning"
               onClick={() => {
-                EditBlog(id, title, url, content);
+                EditBlog();
               }}
             >
               UPDATE
@@ -117,7 +121,7 @@ const BlogDetail = () => {
           </>
         ) : (
           <>
-            <h1>Burayi yalnizca yazar degistirebilir</h1>
+            <h1>Just Blogger can change this page.</h1>
           </>
         )}
       </div>

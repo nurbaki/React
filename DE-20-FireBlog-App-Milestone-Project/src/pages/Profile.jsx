@@ -1,20 +1,27 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
   return (
     <div className="container py-5">
-      <h1 className="text-center">PROFILE</h1>
+      <h1
+        className="text-danger text-center mb-5"
+        style={{ fontFamily: "Girassol" }}
+      >
+        ─── Profile ───
+      </h1>
       <div className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">
-            <img
+            <BsFillPersonFill />
+            {/* <img
               src="#"
               className="img-fluid rounded-start"
               alt="Profile Image"
-            />
+            /> */}
           </div>
           <div className="col-md-8 d-flex flex-column ">
             <div className="card-body">

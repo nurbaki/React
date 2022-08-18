@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Girassol&family=Nuosu+SIL&display=swap");
 
 * {
   box-sizing: border-box;
@@ -6,6 +7,7 @@
 
 body {
   font-family: "Poppins", "sans-serif";
+  /* font-family: "Girassol", cursive; */
   margin: 0;
 }
 
@@ -15,20 +17,25 @@ body {
 }
 
 .blogCard {
-  background-color: #3f51b5;
+  /* background-color: #3f51b5; */
   border-radius: 3px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin: 1rem;
-  width: 300px;
+  /* width: 300px; */
   position: relative;
-  cursor: pointer;
 }
 
 .blogCard img {
   object-fit: fill;
   height: 270px;
   max-width: 100%;
+  cursor: pointer;
+}
+.card-body {
+  cursor: pointer;
+  overflow: hidden;
+  height: 10rem;
 }
 
 .movie-over {

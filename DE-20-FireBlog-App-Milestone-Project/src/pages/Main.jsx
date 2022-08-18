@@ -1,6 +1,5 @@
 import React from "react";
 import firebase from "../helpers/firebase";
-// import { BsPencilSquare, BsFillXCircleFill } from "react-icons/bs";
 import { getDatabase, ref, remove, onValue } from "firebase/database";
 import BlogCard from "../components/BlogCard";
 import { AuthContext } from "../contexts/AuthContext";
@@ -29,10 +28,13 @@ const Main = () => {
     });
   };
 
+  console.log(blogsArray);
   return (
     <>
-      <div className="text-center">
-        <h1 className="text-danger">DASHBOARD</h1>
+      <div className="text-center mt-3">
+        <h1 className="text-danger" style={{ fontFamily: "Girassol" }}>
+          ─── Dashboard ───
+        </h1>
         <hr />
       </div>
       <div className="row d-flex justify-content-center flex-wrap">
