@@ -12,17 +12,16 @@ const BlogDetail = () => {
     useContext(AuthContext);
   const { id } = useParams();
 
-  const findBlog = () => {
-    for (let index = 0; index < blogsArray.length; index++) {
-      const element = blogsArray[index];
-      if (element.id === id) {
-        setBlogDetails(element);
-        break;
-      }
-    }
-  };
-
   useEffect(() => {
+    const findBlog = () => {
+      for (let index = 0; index < blogsArray.length; index++) {
+        const element = blogsArray[index];
+        if (element.id === id) {
+          setBlogDetails(element);
+          break;
+        }
+      }
+    };
     findBlog();
   }, []);
 

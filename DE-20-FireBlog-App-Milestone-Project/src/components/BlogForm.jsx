@@ -74,7 +74,6 @@ const BlogForm = () => {
 
   return (
     <div className="container">
-      <div className="row bg-white">{/* <h2>Add New Blog</h2> */}</div>
       <div className="row bg-white">
         <form>
           <div>

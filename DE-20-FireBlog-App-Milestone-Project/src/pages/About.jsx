@@ -22,11 +22,42 @@ const About = () => {
           </div>
           <div className="col-md-8 d-flex flex-column ">
             <div className="card-body">
-              <h5 className="card-title">Bitirme Projeme Hosgeldiniz</h5>
-              <p className="card-text">Benim adim Nurbaki Bayansal</p>
+              <h4 className="card-title text-center">
+                Welcome To My Final Project
+              </h4>
+              <p className="card-text">Hello,</p>
+              <p className="card-text">my name is Nurbaki Bayansal.</p>
+              <p className="card-text">
+                I developed this blog application as the final project of the
+                Full Stack Developer training. In this project, I used{" "}
+                <span>
+                  <a
+                    className="card-link"
+                    href="https://firebase.google.com/"
+                    target="_blank"
+                  >
+                    Google Firebase
+                  </a>
+                </span>{" "}
+                as infrastructure.
+              </p>
+              <p className="card-text">
+                This means; All blog data and user information are stored in the
+                Google Firebase database. Thus, my project has a safe, practical
+                and professional infrastructure that can be accessed from
+                anywhere.
+              </p>
+              <p className="card-text">
+                I used also React, Bootstrap in this project.
+              </p>
+              <p className="card-text">Thank you for visit.</p>
             </div>
             <ul className="list-group ">
-              <li className="list-group-item">hallo</li>
+              <li className="list-group-item">
+                <a href="https://github.com/nurbaki" target="_blank">
+                  My Github Page
+                </a>
+              </li>
 
               <li className="list-group-item">
                 <Link to={"/"} className="card-link">
@@ -37,35 +68,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="d-flex text-white align-items-center ">
-
-      {currentUser.email === email ? (
-        <>
-          {" "}
-          <button
-            type="submit"
-            className="btn btn-danger"
-            onClick={() => DeleteUser(id)}
-          >
-            DELETE
-          </button>
-          <button
-            type="submit"
-            className="btn btn-warning"
-            onClick={() => {
-              EditBlog(id, title, url, content);
-            }}
-          >
-            UPDATE
-          </button>
-        </>
-      ) : (
-        <>
-          <h1>Burayi yalnizca yazar degistirebilir</h1>
-        </>
-      )}
-    </div> */}
     </div>
   );
 };

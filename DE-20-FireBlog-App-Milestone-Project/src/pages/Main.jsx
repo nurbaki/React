@@ -1,13 +1,11 @@
 import React from "react";
-import firebase from "../helpers/firebase";
-import { getDatabase, ref, remove, onValue } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import BlogCard from "../components/BlogCard";
 import { AuthContext } from "../contexts/AuthContext";
-import { useEffect, useContext, useState } from "react";
-import { toastWarnNotify } from "../helpers/ToastNotify";
+import { useEffect, useContext } from "react";
 
 const Main = () => {
-  const { currentUser, blogsArray, setBlogsArray } = useContext(AuthContext);
+  const { blogsArray, setBlogsArray } = useContext(AuthContext);
 
   useEffect(() => {
     dataRead();
