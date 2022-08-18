@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { forgotPassword, signIn, signUpProvider } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
+import Google from "../assets/google.png";
 
 const Login = () => {
   const [info, setInfo] = useState({
@@ -63,7 +64,8 @@ const Login = () => {
           onClick={() => signUpProvider(navigate)}
           className="btn btn-primary form-control"
         >
-          Continue with Google
+          Continue with
+          <img src={Google} alt="google logo" />
         </button>
       </div>
     </div>

@@ -32,7 +32,7 @@ const Main = () => {
   return (
     <>
       <div className="text-center mt-3">
-        <h1 className="text-danger" style={{ fontFamily: "Girassol" }}>
+        <h1 className="pageHeader" style={{ fontFamily: "Girassol" }}>
           ─── Dashboard ───
         </h1>
         <hr />

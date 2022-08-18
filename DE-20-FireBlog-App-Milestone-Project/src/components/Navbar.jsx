@@ -2,19 +2,31 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logOut } from "../helpers/firebase";
 import { AuthContext } from "../contexts/AuthContext";
+import ClaruswayLogo from "../assets/cw.jpeg";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+  const { currentUser, blog, setBlog, setIsSubmit } = useContext(AuthContext);
+
+  const newblog = () => {
+    setBlog({ ...blog, title: "", url: "", content: "" });
+    setIsSubmit("SUBMIT");
+    navigate("/newblog");
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand text-white">
-            <h4>Fire Blog App</h4>
+          <Link
+            to="/"
+            className="navbar-brand text-white myBrand d-flex  align-items-center m-3"
+          >
+            <img src={ClaruswayLogo} alt="Clarusway Logo" />
+            <h4 className="m-3">Nurbaki's Blog App</h4>
           </Link>
+
           <div className="d-flex text-white align-items-center ">
             {currentUser ? (
               <>
@@ -34,13 +46,13 @@ const Navbar = () => {
                   Profile
                 </button>
                 <button
-                  onClick={() => navigate("/newblog")}
+                  onClick={newblog}
                   className="ms-2 btn btn-outline-light"
                 >
                   New Blog
                 </button>
                 <button
-                  onClick={() => logOut()}
+                  onClick={() => logOut(navigate)}
                   className="ms-2 btn btn-outline-light"
                 >
                   Logout

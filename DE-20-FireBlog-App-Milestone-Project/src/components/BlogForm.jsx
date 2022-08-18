@@ -68,6 +68,7 @@ const BlogForm = () => {
 
   const cleanForm = () => {
     setBlog({ ...blog, title: "", url: "", content: "" });
+    setIsSubmit("SUBMIT");
     navigate("/");
   };
 
@@ -126,16 +127,18 @@ const BlogForm = () => {
               Content
             </label>
           </div>
-          <button
-            type="submit"
-            className="btn btn-primary m-2"
-            onClick={handleSubmit}
-          >
-            {isSubmit}
-          </button>
-          <button onClick={cleanForm} className="btn btn-success">
-            CANCEL
-          </button>
+          <div className="text-center">
+            <button
+              type="submit"
+              className="btn btn-primary m-2"
+              onClick={handleSubmit}
+            >
+              {isSubmit}
+            </button>
+            <button onClick={cleanForm} className="btn btn-success">
+              CANCEL
+            </button>
+          </div>
         </form>
       </div>
     </div>

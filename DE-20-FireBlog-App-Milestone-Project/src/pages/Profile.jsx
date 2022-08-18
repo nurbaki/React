@@ -5,70 +5,41 @@ import { BsFillPersonFill } from "react-icons/bs";
 
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
   return (
-    <div className="container py-5">
+    <div className="container w-50 py-5">
       <h1
-        className="text-danger text-center mb-5"
+        className="text-center mb-5 pageHeader"
         style={{ fontFamily: "Girassol" }}
       >
-        ─── Profile ───
+        ─── My Profile ───
       </h1>
       <div className="card mb-3">
         <div className="row g-0">
-          <div className="col-md-4">
-            <BsFillPersonFill />
-            {/* <img
-              src="#"
-              className="img-fluid rounded-start"
-              alt="Profile Image"
-            /> */}
+          <div className="col-md-3 d-flex justify-content-center align-items-center">
+            <BsFillPersonFill className="display-5 profileImage" />
           </div>
-          <div className="col-md-8 d-flex flex-column ">
+          <div className="col-md-9 d-flex flex-column ">
             <div className="card-body">
               <h5 className="card-title"> {currentUser?.displayName}</h5>
-              <p className="card-text">{currentUser?.displayName}</p>
+              <p className="card-text">{currentUser?.email}</p>
+              <p></p>
+              <p className="card-text"></p>
+              <p className="card-text">
+                {"Registered at : " + currentUser?.metadata.creationTime}
+              </p>
+              <p className="card-text">
+                {"Last login at : " + currentUser?.metadata.lastSignInTime}
+              </p>
             </div>
-            <ul className="list-group ">
-              <li className="list-group-item">hallo</li>
-
-              <li className="list-group-item">
-                <Link to={"/"} className="card-link">
-                  Go Back
-                </Link>
-              </li>
-            </ul>
+            <div>
+              <Link to={"/"} className="card-link ms-3">
+                Go Back
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* <div className="d-flex text-white align-items-center ">
-
-      {currentUser.email === email ? (
-        <>
-          {" "}
-          <button
-            type="submit"
-            className="btn btn-danger"
-            onClick={() => DeleteUser(id)}
-          >
-            DELETE
-          </button>
-          <button
-            type="submit"
-            className="btn btn-warning"
-            onClick={() => {
-              EditBlog(id, title, url, content);
-            }}
-          >
-            UPDATE
-          </button>
-        </>
-      ) : (
-        <>
-          <h1>Burayi yalnizca yazar degistirebilir</h1>
-        </>
-      )}
-    </div> */}
     </div>
   );
 };

@@ -17,12 +17,11 @@ body {
 }
 
 .blogCard {
-  /* background-color: #3f51b5; */
+  /* background-color: #f5deb3; */
   border-radius: 3px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin: 1rem;
-  /* width: 300px; */
   position: relative;
 }
 
@@ -32,10 +31,25 @@ body {
   max-width: 100%;
   cursor: pointer;
 }
-.card-body {
+
+.dashboard {
   cursor: pointer;
   overflow: hidden;
-  height: 10rem;
+  height: 9rem;
+}
+
+.pageHeader {
+  color: #347474 !important;
+}
+
+.card-body {
+}
+
+.icons {
+  font-size: large;
+}
+.space {
+  color: white;
 }
 
 .movie-over {
@@ -74,26 +88,17 @@ body {
   background-color: #7f0000;
 }
 
-.search {
-  width: 100%;
-  justify-content: center;
-  background-color: #bdbdbd;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.search-input {
-  height: 30px;
-  width: 300px;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-}
-
 .navbar {
   padding: 1rem 3rem;
-  background-color: #0d47a1 !important;
+  background-color: #046582 !important;
+}
+
+.myBrand h4 {
+  color: #f5deb3;
+}
+
+.myBrand img {
+  width: 3rem;
 }
 
 .form-image {
@@ -128,9 +133,24 @@ body {
   margin-left: 1.5rem;
 }
 
+.btn-primary img {
+  margin-left: 0.5rem;
+  padding: 5px;
+  background-color: white;
+  width: 6rem;
+}
+
+.btn-white {
+  border: yellow;
+}
+
 .link {
   color: #0b5ed7;
   text-decoration: underline;
   margin-left: 1.5rem;
   cursor: pointer;
+}
+
+.profileImage {
+  color: #0b5ed7;
 }

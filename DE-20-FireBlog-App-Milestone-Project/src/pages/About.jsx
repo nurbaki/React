@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="container py-5">
       <h1
-        className="text-danger text-center mb-5"
+        className="text-center mb-5 pageHeader"
         style={{ fontFamily: "Girassol" }}
       >
         ─── About ───

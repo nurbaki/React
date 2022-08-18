@@ -76,12 +76,13 @@ export const signIn = async (email, password, navigate) => {
   }
 };
 
-export const logOut = () => {
+export const logOut = (navigate) => {
   signOut(auth)
     .then((res) => {
       console.log(res);
       toastSuccessNotify("Logged out successfully!");
       // Sign-out successful.
+      navigate("/");
     })
     .catch((error) => {
       alert(error.message);

@@ -17,7 +17,6 @@ const BlogDetail = () => {
       const element = blogsArray[index];
       if (element.id === id) {
         setBlogDetails(element);
-        console.log(element);
         break;
       }
     }
@@ -53,9 +52,9 @@ const BlogDetail = () => {
   };
 
   return (
-    <div className="container py-5">
+    <div className="container py-5 pageHeader">
       <h1
-        className="text-danger text-center mb-5"
+        className="text-center mb-5 pageHeader"
         style={{ fontFamily: "Girassol" }}
       >
         ─── Details ───
@@ -64,11 +63,7 @@ const BlogDetail = () => {
       <div className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">
-            <img
-              src={url}
-              className="img-fluid rounded-start"
-              alt="Blog Image"
-            />
+            <img src={url} className="img-fluid rounded-start" alt="Blog" />
           </div>
           <div className="col-md-8 d-flex flex-column ">
             <div className="card-body">
@@ -95,10 +90,7 @@ const BlogDetail = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex text-white align-items-center">
-        {/* //!! currentUser.email == email &&
-        
-         */}
+      <div className="d-flex text-white align-items-center justify-content-center">
         {currentUser.email === email ? (
           <>
             {" "}
