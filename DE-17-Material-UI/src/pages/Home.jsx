@@ -1,9 +1,15 @@
-import React from 'react'
+import CardsGrid from "../components/CardsGrid";
+import TextFieldComp from "../components/TextFieldComp";
+import TypoButtons from "../components/TypoButtons";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      {/* <TypoButtons /> */}
+      {/* <TextFieldComp /> */}
+      <CardsGrid />
+    </>
+  );
+};
 
-export default Home
+export default Home;
