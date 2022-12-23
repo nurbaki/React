@@ -1,5 +1,5 @@
 import React from 'react'
-import { Person } from './Person'
+import Person from './Person'
 
 const App = () => {
   return (
@@ -10,13 +10,13 @@ const App = () => {
     tel="555 55 55"
     />
 
-<Person name="Osman Kara"
+    <Person name="Osman Kara"
     img="https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__340.jpg"
     tel="555 55 33"
     />
 
     </div>
   )
-}
+};
 
 export default App
