@@ -5,10 +5,13 @@ let baslik="MERHABA"
 let count=5;
 const tiklama=()=>{
  alert("buton tıklandı")
+ document.querySelector(".btn-primary").textContent = "Click";
 }
 
 const temizle=(p)=>{
 document.querySelector(".btn-primary").textContent = p;
+count =0;
+document.querySelector("h2").textContent=count
 }
 
 //* yeni bir file da reactla çözümüne gidelim
@@ -22,7 +25,7 @@ document.querySelector("h2").textContent=count
     <div className="container text-center mt-4">
     
     <h1>INFO:{baslik}</h1>
-    <button className="btn btn-info" onClick={tiklama} >Click</button>
+    <button className="btn btn-info m-1" onClick={tiklama} >Click</button>
     <button className="btn  btn-primary" onClick={()=>temizle("buton temizlendi")}>Clear</button>
 
 

@@ -7,9 +7,9 @@ import MouseKeyBoard from "./4-mouse_keyBoard/MouseKeyBoard";
 const App = () => {
   return (
     <div>
-      {/* <Event />
+      <Event />
       <Hooks />
-      <Form /> */}
+      <Form />
       <MouseKeyBoard />
     </div>
   );
