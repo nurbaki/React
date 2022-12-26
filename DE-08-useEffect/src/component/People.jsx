@@ -15,7 +15,7 @@ const People = () => {
     <div className="container text-center">
       <div className="row">
         {insanlar.map((insan) => {
-          const { id, name, phone } = insan;
+          const { id, name, phone, website } = insan;
 
           return (
             <div className="col-12 col-sm-6 col-md-4 col-lg-2">
@@ -25,6 +25,7 @@ const People = () => {
               />
               <h5>{name}</h5>
               <h6>{phone}</h6>
+              <h6>{website}</h6>
             </div>
           );
         })}
