@@ -8,7 +8,8 @@ const TeacherDetails = () => {
 
   const { id } = useParams();
 
-  //!teacher dan yollanan id yi useParams ile buraya tanıttık
+  //!teacher dan yollanan id yi useParams ile buraya tanıttık. Bu "id" app.js de route olarak tanimladigimiz adres satirindan sonra
+  //! "id" dedigimiz icin useparams a id diyoruz.  
   console.log(id);
   const [kisi, setKisi] = useState({});
 
