@@ -20,7 +20,7 @@ const AnaUser = ({ kullanici }) => {
             <input
               className="width"
               type="number"
-              value={i.width}
+              value= {i.width}
               onChange={(e) => degistirWidth(i.id, e.target.value)}
             />
           </div>
