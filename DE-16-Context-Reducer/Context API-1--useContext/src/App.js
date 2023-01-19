@@ -14,13 +14,13 @@ const App = () => {
       ogrenci.map((i) => (i.id === id ? { ...i, color: newColor } : i))
     );
   };
-
+//! Ögrencilist burada context provider'in arasinda oldugu icin degiskenleri ögrenci liste direk kullanabilecegiz.
   return (
-    <div>
+    <div> 
       <OgrenciContext.Provider value={{ ogrenci, changeRenk }}>
         <OgrenciList />
       </OgrenciContext.Provider>
-    </div>
+    </div> //! Burada listelenmeyen componentlerde bu degiskemleri kullanmadan önce import etmemiz gerekecek.Örnegin: OgrenciItem componenti 
   );
 };
 

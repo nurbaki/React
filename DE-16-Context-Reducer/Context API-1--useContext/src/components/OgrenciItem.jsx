@@ -7,7 +7,10 @@ const OgrenciItem = () => {
   //   const { changeRenk } = useContext(OgrenciContext);
 
   return (
-    <div>
+    <div style={{
+      backgroundColor: "navy",
+      padding: "2rem",
+    }}>
       {ogrenci.map((i) => {
         return (
           <div
